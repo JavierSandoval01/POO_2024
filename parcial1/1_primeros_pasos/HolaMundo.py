@@ -3,7 +3,7 @@
 resultado=3+7
 
 print("Hola Mundo")
-print('Hola mundo') 
+print('Hola ') 
 
 a=30
 
