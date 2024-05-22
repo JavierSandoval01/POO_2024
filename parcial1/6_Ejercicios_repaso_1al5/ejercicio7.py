@@ -6,6 +6,5 @@ num2=int(input("Ingrese el segundo numero: (fin del rango): "))
 
 for i in range(num1+1,num2):
     impar=i%2
-   
     if impar > .1:
         print(i)
