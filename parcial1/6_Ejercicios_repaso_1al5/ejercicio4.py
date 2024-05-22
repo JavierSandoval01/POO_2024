@@ -27,4 +27,3 @@ print("Division")
 div=num1/num2
 print(f"{num1}/{num2}={div}")
 
-
