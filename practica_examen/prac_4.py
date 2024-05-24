@@ -6,3 +6,42 @@ angulob=float(input("Ingrese el angulo a"))
 
 if anguloa==angulob:
     print("Es isosceles")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
