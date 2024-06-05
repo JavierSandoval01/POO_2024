@@ -1,4 +1,4 @@
-pais="mexico" #tipo de dato string
+pais="Mexico" #tipo de dato string
 continente="America" #tipo de dato string
 
 print(pais)
