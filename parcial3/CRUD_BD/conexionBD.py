@@ -11,5 +11,3 @@ except Exception as e:
     print(f"Error: {e}")
     print(f"Tipo de error: {type(e).__name__}")
     print(f"No fue posible conectar con la BD ... verifique ...")  
-else:
-    print(f"Se creo la conexion con la BD exitosamente")
