@@ -8,7 +8,7 @@ try:
     conexion.commit()
 
 except:
-    print(f"Ocurrio un error con el servidor")
+    print(f"Ocurrio un error con el servidor...por favor intente mas tarde")
 
 else:
-    print(f"Registro insertado correctamente")
+    print(f"Registro eliminado correctamente")
