@@ -123,4 +123,3 @@ def menu_notas(usuario_id,nombre,apellidos):
 
 if __name__ == "__main__":
   menu_principal()
-

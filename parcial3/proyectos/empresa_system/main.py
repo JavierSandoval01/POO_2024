@@ -1,82 +1,15 @@
 import mysql.connector
+from conexionBD import *
+from empleados.empleado import *
+from funciones import *
 from mysql.connector import Error
-
-def crear_conexion():
-    try:
-        conexion = mysql.connector.connect(
-            host='localhost',
-            database='mi_empresa',
-            user='root',
-            password=''
-        )
-        if conexion.is_connected():
-            print("Conexión exitosa a la base de datos")
-            return conexion
-    except Error as e:
-        print(f"Error al conectar a la base de datos: {e}")
-        return None
-
-def cerrar_conexion(conexion):
-    if conexion.is_connected():
-        conexion.close()
-        print("Conexión cerrada")
-
-def crear_empleado(conexion, nombre, puesto, salario):
-    try:
-        cursor = conexion.cursor()
-        query = "INSERT INTO empleados (nombre, puesto, salario) VALUES (%s, %s, %s)"
-        valores = (nombre, puesto, salario)
-        cursor.execute(query, valores)
-        conexion.commit()
-        print("Empleado creado exitosamente")
-    except Error as e:
-        print(f"Error al crear empleado: {e}")
-    finally:
-        cursor.close()
-
-def leer_empleados(conexion):
-    try:
-        cursor = conexion.cursor()
-        query = "SELECT * FROM empleados"
-        cursor.execute(query)
-        resultados = cursor.fetchall()
-        for fila in resultados:
-            print(f"ID: {fila[0]}, Nombre: {fila[1]}, Puesto: {fila[2]}, Salario: {fila[3]}")
-    except Error as e:
-        print(f"Error al leer empleados: {e}")
-    finally:
-        cursor.close()
-
-def actualizar_empleado(conexion, id, nombre, puesto, salario):
-    try:
-        cursor = conexion.cursor()
-        query = "UPDATE empleados SET nombre = %s, puesto = %s, salario = %s WHERE id = %s"
-        valores = (nombre, puesto, salario, id)
-        cursor.execute(query, valores)
-        conexion.commit()
-        print("Empleado actualizado exitosamente")
-    except Error as e:
-        print(f"Error al actualizar empleado: {e}")
-    finally:
-        cursor.close()
-
-def eliminar_empleado(conexion, id):
-    try:
-        cursor = conexion.cursor()
-        query = "DELETE FROM empleados WHERE id = %s"
-        valor = (id,)
-        cursor.execute(query, valor)
-        conexion.commit()
-        print("Empleado eliminado exitosamente")
-    except Error as e:
-        print(f"Error al eliminar empleado: {e}")
-    finally:
-        cursor.close()
+import getpass
 
 def menu():
     conexion = crear_conexion()
     if conexion:
         while True:
+            print("\n>>>>>>>>>>>-MI EMPRESA-<<<<<<<<<<<")
             print("\n--- Menú de Opciones ---")
             print("1. Crear empleado")
             print("2. Leer empleados")
@@ -84,7 +17,7 @@ def menu():
             print("4. Eliminar empleado")
             print("5. Salir")
             opcion = input("Elige una opción: ")
-
+            borrarPantalla()
             if opcion == '1':
                 nombre = input("Nombre: ")
                 puesto = input("Puesto: ")
